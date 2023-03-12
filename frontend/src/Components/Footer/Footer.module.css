@@ -1,0 +1,18 @@
+.ul{
+      list-style-type: none;
+      
+     
+     
+}
+.ul{
+      line-height: 30px;
+}
+.ul li{
+      color: #AAAAAA;
+}
+.ul li :hover{
+color: #02c489;
+}
+ .input{
+      color: white;
+ }

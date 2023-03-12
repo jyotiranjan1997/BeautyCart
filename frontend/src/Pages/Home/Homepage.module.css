@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* #main_container_div {
+    border: 2px solid green;
+} */
+
+#fst_main_div {
+    width: 80%;
+    margin: auto;
+    height: 500px;
+    padding: 10px 10px 10px 10px;
+    border: 1px solid rgb(210, 208, 208);
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* justify-content: space-between; */
+}
+
+#upper_sidebar {
+    width: 25%;
+    height: auto;
+    /* border: 2px solid black; */
+}
+
+#fst_carousel_div {
+    width: 75%;
+    height: 300px;
+    /* border: 2px solid red; */
+}
+
+#upto_40_off_div {
+    width: 100%;
+    /* border: 2px solid blueviolet; */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#upto_40_off_div>img {
+    margin: auto;
+    width: 80%;
+}
+
+#joy_lotus_div {
+    width: 80%;
+    /* border: 2px solid blueviolet; */
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#joy_lotus_div>img {
+    width: 48%;
+}
+
+#upto_50_off_div {
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+#upto_50_off_div>img {
+    width: 100%;
+}
+
+#gift_liya_ky_div {
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+#gift_liya_ky_div>img {
+    width: 100%;
+}
+
+@media screen and (max-width:1180px) and (min-width:760px) {
+    
+    #fst_main_div {
+        width: 80%;
+        margin: auto;
+        height: 400px;
+        border: 1px solid white;
+    }
+    
+    #upper_sidebar {
+        display: none;
+    }
+    
+    #fst_carousel_div {
+        width: 100%;
+        height: 300px;
+    }
+    
+}
+
+@media screen and (max-width:759px) and (min-width:200px) {
+    #fst_main_div {
+        width: 80%;
+        margin: auto;
+        height: 250px;
+        border: 1px solid white;
+    }
+    
+    #upper_sidebar {
+        display: none;
+    }
+    
+    #fst_carousel_div {
+        width: 100%;
+        height: 300px;
+    }
+    
+    #joy_lotus_div {
+        width: 80%;
+        border: 2px solid blueviolet;
+        margin: auto;
+        display: block;
+        justify-content: space-between;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    #joy_lotus_div>img {
+        width: 100%;
+    }
+}
