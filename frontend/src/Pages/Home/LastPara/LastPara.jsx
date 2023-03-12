@@ -3,7 +3,7 @@ import style from "./LastPara.module.css"
 export default function LastPara() {
   return (
     <div id={style.main_para_div}>
-        <h1>Welcome to Beauty Products Online Shopping India- Beauty Bebo</h1>
+        <h1>Welcome to Beauty Products Online Shopping India- Beauty Cart</h1>
         <p>
             <br />
             <br />

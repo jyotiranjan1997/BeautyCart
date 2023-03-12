@@ -31,7 +31,12 @@ const MenSubNav = () => {
 
   return (
     <div>
-      <Box w="100%" h={"50px"} bg={"linear-gradient(#FFE000,#799F0C)"} className={styles.nav}>
+      <Box
+        w="100%"
+        h={"50px"}
+        bg={"linear-gradient(#FFE000,#799F0C)"}
+        className={styles.nav}
+      >
         <Box className={styles.wrapper}>
           <ul className={styles.navLink}>
             <li>
@@ -217,68 +222,6 @@ const MenSubNav = () => {
                     </ul>
                   </div>
                   <div className={styles.row}></div>
-
-                  {/* <div className={styles.row}>
-                  <header style={{ textDecoration: "underline" }}>
-                    SHOP BY BODY FIT
-                  </header>
-                  <div className={styles.midNavImg}>
-                    <div>
-                      <img
-                        src="https://images.asos-media.com/navigation/mw_gbl_clothing_loungewear_flo_114193941_3m?&$n_240w$"
-                        alt=""
-                      />
-                    </div>
-                    <div>
-                      <img
-                        src="https://images.asos-media.com/navigation/mw_gbl_clothing_top_picks_flo_118709147_2m?&$n_240w$"
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className={styles.row}>
-                  <header style={{ textDecoration: "underline" }}>
-                    SHOP BY EDIT
-                  </header>
-                  <div className={styles.shopList}>
-                    <div>
-                      <img
-                        src="https://images.asos-media.com/navigation/mw_gbl_clothing_last_chance_flo_105469462_3m?&$n_240w$"
-                        alt=""
-                      />
-                      <p>Weading</p>
-                    </div>
-                    <div>
-                      <img
-                        src="https://images.asos-media.com/navigation/mw_gbl_clothing_occasionwear_flo_105399272_3m?&$n_240w$"
-                        alt=""
-                      />
-                      <p>Bridal</p>
-                    </div>
-                    <div>
-                      <img
-                        src="https://images.asos-media.com/navigation/mw_gbl_clothing_asos_workwear_flo_1947069_3m_B?&$n_240w$"
-                        alt=""
-                      />
-                      <p>Modest fashion</p>
-                    </div>
-                    <div>
-                      <img
-                        src="https://images.asos-media.com/navigation/mw_clothing_shopbyoccasion_partywearglobal_5wl_1310421?&$n_240w$"
-                        alt=""
-                      />
-                      <p>Last chance</p>
-                    </div>
-                    <div>
-                      <img
-                        src="https://images.asos-media.com/navigation/mw_clothing_wedding_3m_1911570?&$n_240w$"
-                        alt=""
-                      />
-                      <p>Workwear</p>
-                    </div>
-                  </div>
-                </div> */}
                 </div>
               </div>
             </li>
@@ -287,6 +230,7 @@ const MenSubNav = () => {
               <Flex
                 color={"white"}
                 _hover={{ bgColor: "white", color: "black" }}
+                bg={"linear-gradient(#FFE000,#799F0C)"}
                 alignItems={"center"}
                 w="120px"
                 justifyContent={"center"}
@@ -873,7 +817,12 @@ const MenSubNav = () => {
         </Box>
       </Box>
 
-      <Box w="100%" h={"50px"} bgColor={"#dd0285"} className={styles.navtwo}>
+      <Box
+        w="100%"
+        h={"50px"}
+        bg={"linear-gradient(#FFE000,#799F0C)"}
+        className={styles.navtwo}
+      >
         <Box className={styles.wrapper}>
           <ul className={styles.navLink}>
             <Button colorScheme="light" onClick={onOpen}>
@@ -886,78 +835,51 @@ const MenSubNav = () => {
                 <DrawerBody>
                   <div>
                     <Menu>
-                      <Link to="/makeup" onClick={onClose}>
+                      <Link to="/foundation" onClick={onClose}>
                         {" "}
                         <MenuButton rightIcon={<ChevronDownIcon />}>
                           MAKEUP
                         </MenuButton>
-                        <MenuList>
-                          <MenuItem>Face</MenuItem>
-                          <MenuItem>Eyes</MenuItem>
-                          <MenuItem>Nails</MenuItem>
-                          <MenuItem>Toothbrush</MenuItem>
-                        </MenuList>
                       </Link>
                     </Menu>
                   </div>
                   <div>
                     <Menu>
-                      <Link to="/makeup" onClick={onClose}>
+                      <Link to="/hair brush" onClick={onClose}>
                         {" "}
                         <MenuButton rightIcon={<ChevronDownIcon />}>
-                          HAIR
+                          HAIR CARE
                         </MenuButton>
-                        <MenuList>
-                          <MenuItem>Hair care</MenuItem>
-                          <MenuItem>Hair Loss</MenuItem>
-                        </MenuList>{" "}
                       </Link>
                     </Menu>
                   </div>
                   <div>
                     <Menu>
-                      <Link to="/products" onClick={onClose}>
+                      <Link to="/face wash" onClick={onClose}>
                         {" "}
                         <MenuButton rightIcon={<ChevronDownIcon />}>
-                          SKIN
+                          SKIN CARE
                         </MenuButton>
-                        <MenuList>
-                          <MenuItem>Eye Care</MenuItem>
-                          <MenuItem>Face Care</MenuItem>
-                          <MenuItem>Body Care</MenuItem>
-                        </MenuList>
                       </Link>
                     </Menu>
                   </div>
                   <div>
                     <Menu>
-                      <Link to="/products" onClose={onClose}>
+                      <Link to="/wallet" onClose={onClose}>
                         {" "}
                         <MenuButton rightIcon={<ChevronDownIcon />}>
-                          PERSONAL CARE
+                          WALLET
                         </MenuButton>
-                        <MenuList>
-                          <MenuItem>Bath and Body</MenuItem>
-                          <MenuItem>Bath and Accessories</MenuItem>
-                          <MenuItem>BAth and Shower</MenuItem>
-                        </MenuList>
                       </Link>
                     </Menu>
                   </div>
                   <div>
                     <Menu onClose={onClose}>
-                      <Link to="/products">
+                      <Link to="/ayurvedic">
                         {" "}
                         <MenuButton rightIcon={<ChevronDownIcon />}>
-                          BABY AND MOM CARE
+                          AYURVEDIC
                         </MenuButton>
-                        <MenuList>
-                          <MenuItem onClick={onClose}>Bath and Body</MenuItem>
-                          <MenuItem onClick={onClose}>
-                            Bath and Accessories
-                          </MenuItem>
-                          <MenuItem onClick={onClose}>Bath and Shower</MenuItem>
-                        </MenuList>
                       </Link>
                     </Menu>
                   </div>

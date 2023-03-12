@@ -11,9 +11,8 @@ export default function Navbar() {
 
   return (
     <div className={styles.navbar}>
-      {/* <Topnav /> */}
       <Navbar2 />
-      <Dropedown />{" "}
+      <Dropedown />
     </div>
   );
 }

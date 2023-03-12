@@ -11,14 +11,18 @@ import Category from "./Category/Category";
 import MakeupCategory from "./MakeupCategory/MakeupCategory";
 import Aos from "aos";
 
-export default function Home() {
+
+ function Home() {
   const [makeup, setMakeup] = useState(false);
   const [skin, setSkin] = useState(false);
   const [hair, setHair] = useState(false);
+  const [category,setCategory]=useState("foundation")
 
   useEffect(() => {
     Aos.init();
-  }, []);
+  }, [category]);
+   
+   console.log(category)
   return (
     <div id={style.main_container_div}>
       <div id={style.fst_main_div} data-aos="fade-up" data-aos-duration="2000">
@@ -70,40 +74,37 @@ export default function Home() {
         data-aos-duration="2000"
       >
         <img
-          src="https://www.beautybebo.com/pub/media/ads/Blue_heaven_Forent_3-min.jpg"
+          src="https://images-static.nykaa.com/uploads/54f95a28-bd9e-4418-8ae3-5c3e8f422ab6.png?tr=w-1200,cm-pad_resize"
           alt=""
         />
       </div>
 
       <div id={style.joy_lotus_div}>
         <img
-          src="https://www.beautybebo.com/pub/media/ads/joy_banner.gif"
+          src="https://images-static.nykaa.com/uploads/1e35fb54-1b23-4f7a-863c-6b8ec4545e25.jpg?tr=w-600,cm-pad_resize"
           alt=""
         />
         <img
-          src="https://www.beautybebo.com/pub/media/ads/lotus_banner.gif"
+          src="https://images-static.nykaa.com/uploads/c9e66343-a5a9-45b1-b0e1-81b9ea237d0c.jpg?tr=w-600,cm-pad_resize"
           alt=""
         />
       </div>
 
       <div data-aos="fade-up" data-aos-duration="2000">
-        <Category />
+        <Category setCategory={setCategory} />
       </div>
 
       <div data-aos="fade-up" data-aos-duration="2000">
-        <MakeupCategory />
+        <MakeupCategory category={category} />
       </div>
 
-      <div id={style.upto_50_off_div}>
+      <div id={style.joy_lotus_div}>
         <img
-          src="https://www.beautybebo.com/pub/media/ads/Forent_Banner_5-min.jpg"
+          src="https://images-static.nykaa.com/uploads/b0e2225b-7016-4571-91ea-8b53ee8174fd.jpg?tr=w-600,cm-pad_resize"
           alt=""
         />
-      </div>
-
-      <div id={style.gift_liya_ky_div}>
         <img
-          src="https://www.beautybebo.com/pub/media/ads/1599-Forent-banner-4.gif"
+          src="https://images-static.nykaa.com/uploads/d0a2fd63-9395-4a8b-9d8a-f5c3d54b380d.jpg?tr=w-600,cm-pad_resize"
           alt=""
         />
       </div>
@@ -114,3 +115,4 @@ export default function Home() {
     </div>
   );
 }
+export default React.memo(Home)

@@ -75,7 +75,7 @@ export default function Products({ product_category }) {
     Aos.init();
     Get_update();
     makeupData();
-  }, []);
+  }, [product_category]);
   return (
     <div styles={{ display: "flex", width: "80%", margin: "auto" }}>
       {Load ? (
