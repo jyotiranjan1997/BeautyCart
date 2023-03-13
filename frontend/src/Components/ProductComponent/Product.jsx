@@ -11,13 +11,10 @@ import swal from "sweetalert";
 import { GetLocal } from "../../Utils/localstorage";
 import { useNavigate } from "react-router-dom";
 import Loading from "../Loading/Loading";
-import { Flex } from "@chakra-ui/react";
+import { Box, Flex, Heading } from "@chakra-ui/react";
 import Aos from "aos";
 
-function simulateNetworkRequest() {
-  return new Promise((resolve) => setTimeout(resolve, 2000));
-}
-export default function Products({ product_category }) {
+export default function Products({ product_category, product_name }) {
   const [makeup, setmakeup] = useState([]);
   const [Load, setLoad] = useState(false);
   const Token = GetLocal("auth") || false;
@@ -39,7 +36,6 @@ export default function Products({ product_category }) {
         setLoad(false);
       });
   };
-
 
   const handleCartClick = (image, price, name) => {
     setLoad(true);
@@ -76,7 +72,19 @@ export default function Products({ product_category }) {
     makeupData();
   }, [product_category]);
   return (
-    <div styles={{ display: "flex", width: "80%", margin: "auto" }}>
+    <div
+      styles={{
+        display: "flex",
+        width: "80%",
+        margin: "auto",
+        marginTop: "30px",
+      }}
+    >
+      {product_name && (
+        <Box mt="25px" ml="35px">
+          <Heading fontSize="25px">{product_name}</Heading>
+        </Box>
+      )}
       {Load ? (
         <Flex alignItems="center" justifyContent="center" p="30px">
           <Loading />

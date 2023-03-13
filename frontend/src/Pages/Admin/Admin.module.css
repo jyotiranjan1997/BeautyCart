@@ -7,10 +7,12 @@
   text-align: center;
   margin-top: 0px;
 }
+
 .AdminRightebar {
   width: 80%;
   padding: 30px;
-  background-color: rgb(199, 228, 236);
+  background:linear-gradient(#5EFCE8,
+#736EFE)
 }
 
 .userContainer {
@@ -19,6 +21,7 @@
   justify-content: center;
   gap: 15px;
 }
+
 .line {
   position: relative;
   top: 0px;
@@ -28,6 +31,7 @@
   background: rgb(172, 129, 129);
   margin-bottom: 30px;
 }
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -45,7 +49,16 @@
 
 .handlePoint:hover {
   cursor: pointer;
-  background-color: rgb(231, 55, 164);
+  background:linear-gradient(#FFE000,
+#799F0C);
+  border-radius: 15px;
+}
+
+.active_hover{
+  background:linear-gradient(#FFE000,
+#799F0C);
+  border-radius: 15px;
+  margin-top: 8px;
 }
 
 .single:hover {

@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function OderCart({ data }) {
   console.log(data);
@@ -24,7 +23,7 @@ export default function OderCart({ data }) {
         style={{
           backgroundColor: "ghostwhite",
           boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-          color: "green",
+          color: "green.400",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
@@ -32,12 +31,10 @@ export default function OderCart({ data }) {
           padding: "12px",
           marginBottom: "15px",
           cursor: "ponter",
-              }}
-              onClick={handleClick}
+        }}
+        onClick={handleClick}
       >
-        <p style={{ fontSize: "25px" }} >
-          {show ? "-" : "+"}
-        </p>
+        <p style={{ fontSize: "25px" }}>{show ? "-" : "+"}</p>
         <p>Product Order Successfully on {date} </p>
       </div>
       {show && (

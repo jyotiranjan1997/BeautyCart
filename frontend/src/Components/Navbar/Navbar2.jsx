@@ -8,14 +8,16 @@ import { RiAccountPinCircleFill } from "react-icons/ri";
 import Account from "./Account";
 
 const getData = async (data) => {
-  
   try {
-    let res = await axios.get(`https://pleasant-foal-cloak.cyclic.app/navbars?q=${data}`);
-  return res.data;
+    console.log(data)
+    let res = await axios.get(
+      `https://magnificent-jade-girdle.cyclic.app/navbars?q=${data}`
+    );
+    console.log(res)
+    return res.data;
   } catch (err) {
     return err;
   }
-  
 };
 
 export default function Navbar2() {

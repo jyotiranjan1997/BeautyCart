@@ -1,4 +1,4 @@
-import { Box, Text,  Button } from "@chakra-ui/react";
+import { Box, Text, Button, Flex } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -14,7 +14,7 @@ function simulateNetworkRequest() {
 export default function User() {
   const [user, setUser] = useState([]);
   const [render, setrender] = useState(true);
-  
+
   const { users, user_auth, isloading } = useSelector(
     (store) => store.AdminReducer
   );
@@ -25,10 +25,8 @@ export default function User() {
       setrender(false);
       setUser(users);
     });
-
-  
   };
-console.log(user)
+  console.log(user);
   // const get_quantity = async () => {
   //   await axios
   //     .get("https://pleasant-foal-cloak.cyclic.app/users/count", {
@@ -43,14 +41,11 @@ console.log(user)
   const handleDelete = async (id) => {
     setrender(false);
     await axios
-      .delete(
-        `https://magnificent-jade-girdle.cyclic.app/users/${id}`,
-        {
-          headers: {
-            token: `Bearer ${Token}`,
-          },
-        }
-      )
+      .delete(`https://magnificent-jade-girdle.cyclic.app/users/${id}`, {
+        headers: {
+          token: `Bearer ${Token}`,
+        },
+      })
       .then((res) => {
         setrender(true);
         swal({
@@ -92,31 +87,49 @@ console.log(user)
                 <Box
                   bgColor="blue.100"
                   p="10px"
-                  textAlign="center"
+                  textAlign="left"
                   borderRadius="5px"
                   key={singleUser._id}
                   boxShadow="rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px"
                 >
-                  <Text fontSize={["8px", "8px", "14px", "14px"]} mt="8px">
+                  <Text
+                    fontSize={["8px", "8px", "14px", "14px"]}
+                    ml="8px"
+                    mt="8px"
+                  >
                     First Name: {singleUser.firstName}
                   </Text>
-                  <Text fontSize={["8px", "8px", "14px", "14px"]} mt="8px">
+                  <Text
+                    fontSize={["8px", "8px", "14px", "14px"]}
+                    ml="8px"
+                    mt="8px"
+                  >
                     Last Name: {singleUser.lastName}
                   </Text>
-                  <Text fontSize={["8px", "8px", "14px", "14px"]} mt="8px">
+                  <Text
+                    fontSize={["8px", "8px", "14px", "14px"]}
+                    ml="8px"
+                    mt="8px"
+                  >
                     Email: {singleUser.email}
                   </Text>
-                  <Text fontSize={["8px", "8px", "14px", "14px"]} mt="8px">
+                  <Text
+                    fontSize={["8px", "8px", "14px", "14px"]}
+                    ml="8px"
+                    mt="8px"
+                  >
                     Admin Access: {singleUser.isAdmin ? "YES" : "NO"}
                   </Text>
-                  <Button
-                    size="sm"
-                    mt="8px"
-                    colorScheme="red"
-                    onClick={() => handleDelete(singleUser._id)}
-                  >
-                    Delete
-                  </Button>
+                  <Flex justifyContent="center" alignItems="center">
+                    <Button
+                      size="sm"
+                      mt="8px"
+                      colorScheme="red"
+                      onClick={() => handleDelete(singleUser._id)}
+                    >
+                      Delete
+                    </Button>
+                  </Flex>
                 </Box>
               </div>
             ))}

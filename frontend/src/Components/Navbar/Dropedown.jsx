@@ -48,7 +48,7 @@ const MenSubNav = () => {
                 justifyContent={"center"}
                 h="49px"
               >
-                <Link className={styles.Link} to="/makeup">
+                <Link className={styles.Link} to="/foundation">
                   <Text className={styles.text}>MAKEUP</Text>
                   <ChevronDownIcon />
                 </Link>
@@ -62,43 +62,43 @@ const MenSubNav = () => {
                     <header>Face</header>
                     <ul className={styles.megaLinks}>
                       <li>
-                        <a href="#">BB Cream</a>
+                        <Link to="/foundation">BB Cream</Link>
                       </li>
                       <li>
-                        <Link to={"/products"}>Blush</Link>
+                        <Link to={"/hair_oil"}>Blush</Link>
                       </li>
                       <li>
                         <Link>Bronzers</Link>
                       </li>
                       <li>
-                        <a href="/products">CC Cream</a>
+                        <a href="/foundation">CC Cream</a>
                       </li>
                       <li>
-                        <a href="/products">Countour</a>
+                        <a href="/foundation">Countour</a>
                       </li>
                       <li>
-                        <a href="/products">Concealer</a>
+                        <a href="/foundation">Concealer</a>
                       </li>
                       <li>
-                        <a href="/products">Compact</a>
+                        <a href="/foundation">Compact</a>
                       </li>
                       <li>
-                        <a href="/products">Face Primer</a>
+                        <a href="/foundation">Face Primer</a>
                       </li>
                       <li>
-                        <a href="/products">Foundation</a>
+                        <a href="/foundation">Foundation</a>
                       </li>
                       <li>
-                        <a href="/products">Highlighters</a>
+                        <a href="/foundation">Highlighters</a>
                       </li>
                       <li>
-                        <a href="/products">Loose Powder</a>
+                        <a href="/foundation">Loose Powder</a>
                       </li>
                       <li>
-                        <a href="/products">Makeup Kits</a>
+                        <a href="/foundation">Makeup Kits</a>
                       </li>
                       <li>
-                        <a href="/products">Makeup</a>
+                        <a href="/foundation">Makeup</a>
                       </li>
                     </ul>
                   </div>
@@ -109,7 +109,7 @@ const MenSubNav = () => {
                         <a href="#">Contact Lenses</a>
                       </li>
                       <li>
-                        <Link to={"/"}>Eye Liner</Link>
+                        <Link to={"/faceWash"}>Eye Liner</Link>
                       </li>
                       <li>
                         <Link>Eye Shadow</Link>
@@ -236,7 +236,7 @@ const MenSubNav = () => {
                 justifyContent={"center"}
                 h="49px"
               >
-                <Link className={styles.Link} to="/products">
+                <Link className={styles.Link} to="/foundation">
                   <Text className={styles.text}>SKIN</Text>
                   <ChevronDownIcon />
                 </Link>
@@ -353,7 +353,7 @@ const MenSubNav = () => {
                     <div className={styles.midNavImg}>
                       <div>
                         <img
-                          src="https://media.istockphoto.com/id/1320934166/photo/cosmetic-skin-care-products-on-green-leaves.jpg?b=1&s=170667a&w=0&k=20&c=dc-QT1-XScBSIvYwtM9_rmMwq1ke1QOAFuxXoYFM7Mo="
+                          src="https://media.istockphoto.com/id/1320934166/photo/cosmetic-skin-care-foundation-on-green-leaves.jpg?b=1&s=170667a&w=0&k=20&c=dc-QT1-XScBSIvYwtM9_rmMwq1ke1QOAFuxXoYFM7Mo="
                           alt=""
                         />
                       </div>

@@ -33,16 +33,20 @@ export default function Admin() {
     <div>
       <Flex>
         <div className={styles.AdminSidebar} data-aos="zoom-in">
-          <Heading fontSize={["14px", "15px", "18px", "28px"]} mb="24px">
+          <Heading fontSize={["14px", "15px", "18px", "28px"]} mb="35%">
             Admin{" "}
           </Heading>
           <div
-            className={styles.handlePoint}
+            className={
+              page === "dashboard"
+                ? (styles.handlePoint, styles.active_hover)
+                : styles.handlePoint
+            }
             onClick={() => handleClick("dashboard")}
           >
             <Heading
               fontSize={["10px", "10px", "14px", "24px"]}
-              mt="35%"
+             
               mb="15px"
             >
               Dashboard
@@ -51,7 +55,11 @@ export default function Admin() {
           </div>
           <div
             onClick={() => handleClick("user")}
-            className={styles.handlePoint}
+            className={
+              page === "user"
+                ? (styles.handlePoint, styles.active_hover)
+                : styles.handlePoint
+            }
           >
             <Heading mb="18px" fontSize={["10px", "10px", "14px", "24px"]}>
               Users
@@ -59,7 +67,11 @@ export default function Admin() {
             <hr className={styles.line} />
           </div>
           <div
-            className={styles.handlePoint}
+            className={
+              page === "product"
+                ? (styles.handlePoint, styles.active_hover)
+                : styles.handlePoint
+            }
             onClick={() => handleClick("product")}
           >
             <Heading mb="18px" fontSize={["10px", "10px", "14px", "24px"]}>

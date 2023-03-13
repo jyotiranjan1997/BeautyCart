@@ -10,6 +10,7 @@ import {
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import swal from "sweetalert";
 import Loading from "../../Components/Loading/Loading";
 import { POST_PRODUCT } from "../../Redux/AdminReducer/AdminAction";
 import { GetLocal } from "../../Utils/localstorage";
@@ -24,8 +25,7 @@ const InitialData = {
   price: "",
   discountPrice: "",
   inStock: true,
-  expire:"",
- 
+  expire: "",
 };
 
 const postProduct = (data) => {
@@ -38,14 +38,16 @@ export default function Products() {
     (store) => store.AdminProductReducer
   );
   const dispatch = useDispatch();
-   const Token = GetLocal("auth");
+  const Token = GetLocal("auth");
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(ItemData);
-    await dispatch(POST_PRODUCT(Token ,ItemData));
+    await dispatch(POST_PRODUCT(Token, ItemData));
     setItemData(InitialData);
     setTimeout(() => {
-      window.alert("Product added Successfully");
+      swal({
+        title: "Product added Successfully!",
+        icon: "success",
+      });
     }, 1000);
   };
   const handleChange = (e) => {
@@ -84,9 +86,10 @@ export default function Products() {
                 color="black"
               >
                 <option>Select Catagory</option>
-                <option value="skin care">skin care</option>
-                <option value="hair care">Hair Care</option>
-                <option value="personal care">Personal Care</option>
+                <option value="wallet">Wallet</option>
+                <option value="foundation">Makeup</option>
+                <option value="face wash">Face wash</option>
+                <option value="ayurvedic">Ayurvedic</option>
               </Select>
 
               <Input
@@ -138,8 +141,8 @@ export default function Products() {
                 mt="15px"
                 onChange={handleChange}
               />
-              <Button mt="15px" colorScheme="pink" onClick={handleSubmit}>
-                Submit
+              <Button mt="15px" colorScheme="green" onClick={handleSubmit}>
+                Add Product
               </Button>
             </form>
           </Box>

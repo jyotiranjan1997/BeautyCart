@@ -11,18 +11,17 @@ import Category from "./Category/Category";
 import MakeupCategory from "./MakeupCategory/MakeupCategory";
 import Aos from "aos";
 
-
- function Home() {
+function Home() {
   const [makeup, setMakeup] = useState(false);
   const [skin, setSkin] = useState(false);
   const [hair, setHair] = useState(false);
-  const [category,setCategory]=useState("foundation")
+  const [category, setCategory] = useState("foundation");
 
   useEffect(() => {
     Aos.init();
   }, [category]);
-   
-   console.log(category)
+
+  console.log(category);
   return (
     <div id={style.main_container_div}>
       <div id={style.fst_main_div} data-aos="fade-up" data-aos-duration="2000">
@@ -46,21 +45,21 @@ import Aos from "aos";
             <Carousel.Item interval={1500}>
               <img
                 className="d-block w-100"
-                src="https://www.beautybebo.com/pub/media/ads/home-slider/Ponds_Forent_Banner_6-min.jpg"
+                src="https://media6.ppl-media.com/tr:w-1280,c-at_max,pr-true,dpr-2/mediafiles/ecomm/misc/1678617433_loreal-professional-_web_hp.jpg"
                 alt="First slide"
               />
             </Carousel.Item>
             <Carousel.Item interval={2000}>
               <img
                 className="d-block w-100"
-                src="https://www.beautybebo.com/pub/media/ads/home-slider/Mamaearth_banner_1-min.jpg"
+                src="https://media6.ppl-media.com/tr:w-1280,c-at_max,pr-true,dpr-2/mediafiles/ecomm/misc/1678446917_swiss_beauty_craze_revised-2596x836-4.jpeg"
                 alt="Second slide"
               />
             </Carousel.Item>
             <Carousel.Item interval={2500}>
               <img
                 className="d-block w-100"
-                src="https://www.beautybebo.com/pub/media/ads/home-slider/Slider_banner_1-min.jpg"
+                src="https://media6.ppl-media.com/tr:w-1280,c-at_max,pr-true,dpr-2,f-gif/mediafiles/ecomm/misc/1678540829_ny-bae1294x418.gif"
                 alt="Third slide"
               />
             </Carousel.Item>
@@ -115,4 +114,4 @@ import Aos from "aos";
     </div>
   );
 }
-export default React.memo(Home)
+export default React.memo(Home);

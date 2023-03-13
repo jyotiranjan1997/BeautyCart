@@ -32,7 +32,7 @@ export default function Order() {
     <div>
       <Center>
         
-        <ButtonComponent Title="Product Oders" buttonColor="pink" />
+        <ButtonComponent Title="Product Oders" buttonColor="green" />
         
       </Center>
 
