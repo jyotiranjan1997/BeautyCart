@@ -8,7 +8,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Confirm from "./Confirm";
 import { useDispatch, useSelector } from "react-redux";
 import { CARD_DELETE_ALL } from "../../Redux/CartReducer/CartAction";
-import Loading from "../../Components/CartProductCard/Loading";
+import Loading from "../../Components/Loading/Loading";
 
 
 export default function Checkout() {
@@ -51,7 +51,7 @@ export default function Checkout() {
                   <Box mt="10px" key={index}>
                     <Flex gap="7px" ml="2px">
                       <Text>{inputs[index]}</Text>
-                      <Text color="red">*</Text>
+                      <Text color="green">*</Text>
                     </Flex>
 
                     <InputComponent
@@ -76,7 +76,7 @@ export default function Checkout() {
           <Flex justifyContent="space-between" alignItem="center">
             <Flex justifyContent="center" alignItem="center">
               <Text>
-                <Radio colorScheme="pink" defaultChecked value="1"></Radio>{" "}
+                <Radio color="green.400" defaultChecked value="1"></Radio>{" "}
               </Text>
 
               <Text mt="18px" ml="10px">

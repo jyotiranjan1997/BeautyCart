@@ -9,7 +9,7 @@ import { ADD_CARD_DATA } from "../../Redux/CartReducer/CartAction";
 import swal from "sweetalert";
 import { GetLocal } from "../../Utils/localstorage";
 import { useLocation, useNavigate } from "react-router-dom";
-import Loading from "../../Components/CartProductCard/Loading";
+import Loading from "../../Components/Loading/Loading";
 import { Center, Flex } from "@chakra-ui/react";
 import Aos from "aos";
 

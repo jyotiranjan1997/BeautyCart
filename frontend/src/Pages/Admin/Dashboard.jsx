@@ -2,7 +2,7 @@ import { Flex, Box, Image, Text } from "@chakra-ui/react";
 import Aos from "aos";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Loading from "../../Components/CartProductCard/Loading";
+import Loading from "../../Components/Loading/Loading";
 import { GetLocal } from "../../Utils/localstorage";
 export default function Dashboard() {
 

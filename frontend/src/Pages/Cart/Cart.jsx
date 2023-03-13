@@ -4,7 +4,7 @@ import swal from "sweetalert";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import ButtonComponent from "../../Components/ButtonComponent";
-import Loading from "../../Components/CartProductCard/Loading";
+import Loading from "../../Components/Loading/Loading";
 import ProductCard from "../../Components/CartProductCard/ProductCard";
 import {
   EDIT_CARD_DELETE,
@@ -33,14 +33,11 @@ function Cart() {
 
   const handleDelete = async (id) => {
     await axios
-      .delete(
-        `https://magnificent-jade-girdle.cyclic.app/carts/${id}`,
-        {
-          headers: {
-            token: `Bearer ${Token}`,
-          },
-        }
-      )
+      .delete(`https://magnificent-jade-girdle.cyclic.app/carts/${id}`, {
+        headers: {
+          token: `Bearer ${Token}`,
+        },
+      })
       .then((res) => {
         setData({ ...data, render: true });
         swal({
@@ -82,7 +79,7 @@ function Cart() {
 
   const handleCheckout = () => {
     Navigate("/checkout", {
-      state: { total_price: data.total,products:data.CardItem },
+      state: { total_price: data.total, products: data.CardItem },
     });
   };
 

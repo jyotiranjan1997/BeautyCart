@@ -7,8 +7,15 @@ import { Flex } from "@chakra-ui/react";
 import { RiAccountPinCircleFill } from "react-icons/ri";
 import Account from "./Account";
 
-const getData = (data) => {
-  return axios.get(`https://pleasant-foal-cloak.cyclic.app/navbars?q=${data}`);
+const getData = async (data) => {
+  
+  try {
+    let res = await axios.get(`https://pleasant-foal-cloak.cyclic.app/navbars?q=${data}`);
+  return res.data;
+  } catch (err) {
+    return err;
+  }
+  
 };
 
 export default function Navbar2() {
@@ -23,15 +30,9 @@ export default function Navbar2() {
       if (q === "") {
         setSuggestion([]);
       } else {
-        getData(q)
-          .then((res) => {
-            setSuggestion(res.data);
-          })
-          .catch((e) => {
-            console.log(e);
-          });
+        setSuggestion(getData(q));
       }
-    }, 800);
+    }, 1000);
     return () => clearTimeout(timeout);
   }, [q]);
 

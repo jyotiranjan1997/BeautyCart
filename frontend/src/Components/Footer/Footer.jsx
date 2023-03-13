@@ -101,7 +101,7 @@ export default function App() {
                   <a href="#!">(+91) 7877061041</a>
                 </li>
                 <li>
-                  <a href="#!">sales@beautybebo.com</a>
+                  <a href="#!">sales@beautycart.com</a>
                 </li>
                 <li>
                   <a href="#!">Open time: 10:00AM - 7:00PM</a>
@@ -248,7 +248,7 @@ export default function App() {
         className="text-center p-3"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
       >
-        © 2023 Copyright:
+        © 2023 Copyright
         <a className="text-white" href="/">
           BeautyCart.com
         </a>

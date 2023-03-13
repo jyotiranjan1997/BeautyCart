@@ -2,7 +2,7 @@ import { Box, Text,  Button } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Loading from "../../Components/CartProductCard/Loading";
+import Loading from "../../Components/Loading/Loading";
 import { GET_USER } from "../../Redux/AdminReducer/AdminAction";
 import { GetLocal } from "../../Utils/localstorage";
 import styles from "./Admin.module.css";

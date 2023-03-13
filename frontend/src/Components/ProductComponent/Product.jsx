@@ -10,7 +10,7 @@ import { ADD_CARD_DATA } from "../../Redux/CartReducer/CartAction";
 import swal from "sweetalert";
 import { GetLocal } from "../../Utils/localstorage";
 import { useNavigate } from "react-router-dom";
-import Loading from "../CartProductCard/Loading";
+import Loading from "../Loading/Loading";
 import { Flex } from "@chakra-ui/react";
 import Aos from "aos";
 
@@ -24,6 +24,7 @@ export default function Products({ product_category }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const makeupData = () => {
+    setLoad(true);
     axios
       .get(
         `https://magnificent-jade-girdle.cyclic.app/products?category=` +
@@ -31,16 +32,14 @@ export default function Products({ product_category }) {
       )
       .then((res) => {
         setmakeup(res.data);
+        setLoad(false);
       })
       .catch((e) => {
         console.log(e);
+        setLoad(false);
       });
   };
 
-  const Get_update = () => {
-    setLoad(true);
-    simulateNetworkRequest().then((res) => setLoad(false));
-  };
 
   const handleCartClick = (image, price, name) => {
     setLoad(true);
@@ -73,7 +72,7 @@ export default function Products({ product_category }) {
 
   useEffect(() => {
     Aos.init();
-    Get_update();
+    // Get_update();
     makeupData();
   }, [product_category]);
   return (

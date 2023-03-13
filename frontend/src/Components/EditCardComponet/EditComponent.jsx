@@ -4,9 +4,9 @@ import { Image, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { EDIT_CARD_DATA } from "../../Redux/CartReducer/CartAction";
 import ButtonComponent from "../ButtonComponent";
-import Loading from "../CartProductCard/Loading";
+import Loading from "../Loading/Loading";
 import styles from "./EditComponent.module.css";
-import swal from "sweetalert"
+import swal from "sweetalert";
 import axios from "axios";
 import { GetLocal } from "../../Utils/localstorage";
 function simulateNetworkRequest() {
@@ -31,39 +31,33 @@ function EditComponent({
   const handleConfirm = async (e) => {
     e.preventDefault();
     const Value = { id: id, quantity: data.Qty };
-   await axios
-     .patch(
-       `https://pleasant-foal-cloak.cyclic.app/carts/${Value.id}`,
-       { quantity: Value.quantity },
-       {
-         headers: {
-           token: `Bearer ${Token}`,
-         },
-       }
-     )
-     .then((res) => {
-       getCard_data();
-       swal({
-         title: "Updated",
-         text: "Cart updated Successfully",
-         icon: "success",
-         button: "ok",
-       });
-     })
-     .catch((err) =>
-       swal({
-         title: "Updated Failed",
-         text: "Cart updated Failed",
-         icon: "error",
-         button: "ok",
-       })
-     );
-   
-   
-    // setLoad(true);
-    
-    // await simulateNetworkRequest().then((res) => setLoad(false));
-   
+    await axios
+      .patch(
+        `https://magnificent-jade-girdle.cyclic.app/carts/${Value.id}`,
+        { quantity: Value.quantity },
+        {
+          headers: {
+            token: `Bearer ${Token}`,
+          },
+        }
+      )
+      .then((res) => {
+        getCard_data();
+        swal({
+          title: "Updated",
+          text: "Cart updated Successfully",
+          icon: "success",
+          button: "ok",
+        });
+      })
+      .catch((err) =>
+        swal({
+          title: "Updated Failed",
+          text: "Cart updated Failed",
+          icon: "error",
+          button: "ok",
+        })
+      );
   };
 
   useEffect(() => {}, [load]);
@@ -72,14 +66,14 @@ function EditComponent({
     // e.preventDefault();
     if (data.Qty <= 5 && data.Price <= 3000) {
       let new_value = data.Qty + 1;
-      setData({ ...data, Price: new_value * price, Qty: new_value });
+      setData({ ...data, Price: new_value * +price, Qty: new_value });
     } else {
-       swal({
-         title: "Limit Exceed",
-         text: "You can't add Maximum !",
-         icon: "error",
-         button: "ok",
-       });
+      swal({
+        title: "Limit Exceed",
+        text: "You can't add Maximum !",
+        icon: "error",
+        button: "ok",
+      });
     }
   };
 
@@ -87,14 +81,14 @@ function EditComponent({
     // e.preventDefault();
     if (data.Qty > 1 && data.Price > 1) {
       let new_value = data.Qty - 1;
-      setData({ ...data, Price: new_value * price, Qty: new_value });
+      setData({ ...data, Price: new_value * +price, Qty: new_value });
     } else {
-       swal({
-         title: "Minimum 1 Quantity Need !",
-         text: "",
-         icon: "error",
-         button: "ok",
-       });
+      swal({
+        title: "Minimum 1 Quantity Need !",
+        text: "",
+        icon: "error",
+        button: "ok",
+      });
     }
   };
   return (

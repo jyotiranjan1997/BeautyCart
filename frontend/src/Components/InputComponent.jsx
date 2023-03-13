@@ -14,8 +14,8 @@ export default function InputComponent({
       name={name}
       type={type}
       value={value}
-      _hover={{ border: "2px solid pink" }}
-      focusBorderColor="pink.400"
+      _hover={{ border: "2px solid green" }}
+      focusBorderColor="green.400"
       placeholder={placeholder}
       w={width}
       onChange={handleFunction}

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import ButtonComponent from "../../Components/ButtonComponent";
-import Loading from "../../Components/CartProductCard/Loading";
+import Loading from "../../Components/Loading/Loading";
 import ModalOpen from "../../Components/Modal";
 import { GET_CARD_DATA } from "../../Redux/CartReducer/CartAction";
 import { GET_ORDER } from "../../Redux/OrderReducer/OrderAction";

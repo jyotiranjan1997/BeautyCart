@@ -3,7 +3,7 @@ import { Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
-import Loading from "../../Components/CartProductCard/Loading";
+import Loading from "../../Components/Loading/Loading";
 import swal from "sweetalert";
 const initialState = {
   firstName: "",

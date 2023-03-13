@@ -10,7 +10,7 @@ import {
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Loading from "../../Components/CartProductCard/Loading";
+import Loading from "../../Components/Loading/Loading";
 import { POST_PRODUCT } from "../../Redux/AdminReducer/AdminAction";
 import { GetLocal } from "../../Utils/localstorage";
 import styles from "./Products.module.css";

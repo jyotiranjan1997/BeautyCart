@@ -88,8 +88,9 @@ function ConfirmModal({ amount, handleDeleteMany, data, products }) {
     <>
       <ButtonComponent
         Title="Next"
-        buttonColor="pink"
+        buttonColor="green"
         handleClick={handleShow}
+        
       />
       {/* <Button backgroundColor="pink" variant="primary" onClick={handleShow}>
         Next
