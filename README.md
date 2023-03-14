@@ -2,7 +2,7 @@
 
 ## About
 
-### Beauty Cart is an Ecommerce website and deals with special occasion need of the Makeup, Skin care, Hair care, Personal care, Face wash, Wallet and Ayurveda products. It is an individual project built in 6 days.
+### Beauty Cart is an Ecommerce website that deals with special occasion needs of Makeup, Skincare, Hair care, Personal care, Face wash, Wallet, and Ayurveda products. It is an individual project built in 6 days.
 
 ## Individual Project
 
@@ -56,16 +56,18 @@
 
 - ### Navbar
   ![](./assets/Navbar.png)
-- ### Signup or Register
-  <!-- ![](./assets/signup.png) -->
+- ### Home Page
+  ![](./assets/Home.png)
+  - ### Signup or Register
+    ![](./assets/Signup.png)
 - ### Login
-  <!-- ![](./assets/login.png) -->
+  ![](./assets/Login.png)
 - ### Profile Dashboard
   ![](./assets/Profile.png)
-- ### Home Page
-  <!-- ![](./assets/home.png) -->
+  - ### Admin Dashboard
+    ![](./assets/Admin.png)
 - ### Product Page
-  <!-- ![](./assets/product.png) -->
+  ![](./assets/Product.png)
 - ### Cart Page
   ![](./assets/Cart.png)
 - ### Checkout Page

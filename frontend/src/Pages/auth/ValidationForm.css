@@ -1,5 +1,5 @@
 /* For Large Screen */
-@media only screen and (min-width: 1008px) {
+
   .validation_form {
     width: 100%;
     
@@ -39,13 +39,13 @@
   .signup_continue {
     width: 100%;
     height: 46px;
-    background-color: #222222;
+     background-color: #47b672;
     border: none;
     color: #ffffff;
     font-weight: 600;
     cursor: pointer;
   }
-}
+
 
 /* For medium screen */
 @media only screen and ((min-width: 641px) and (max-width: 1007px)) {
@@ -87,7 +87,7 @@
   .signup_continue {
     width: 100%;
     height: 46px;
-    background-color: #222222;
+     background-color: #47b672;
     border: none;
     color: #ffffff;
     font-weight: 600;
@@ -135,7 +135,7 @@
   .signup_continue {
     width: 100%;
     height: 46px;
-    background-color: #222222;
+     background-color: #47b672;
     border: none;
     color: #ffffff;
     font-weight: 600;

@@ -1,4 +1,4 @@
-import "./Login.css";
+import styles from "./Login.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
@@ -57,15 +57,15 @@ function Login() {
   };
 
   return (
-    <div className="login_parent">
+    <div className={styles.login_parent}>
       {Load ? (
         <Loading />
       ) : (
-        <div className="existing_and_new_users">
-          <div className="existing_customer">
-            <p className="existing_user_tag">Existing Customers</p>
+        <div className={styles.existing_and_new_users}>
+          <div className={styles.existing_customer}>
+            <p className={styles.existing_user_tag}>Existing Customers</p>
 
-            <div className="login_form">
+            <div className={styles.login_form}>
               <form onSubmit={handleLogin}>
                 {/* For email */}
                 <p>
@@ -73,7 +73,7 @@ function Login() {
                     * Email address
                     <br />
                     <input
-                      className="input_login"
+                      className={styles.input_login}
                       required
                       value={email}
                       onChange={(event) => setEmail(event.target.value)}
@@ -88,7 +88,7 @@ function Login() {
                     * Password
                     <br />
                     <input
-                      className="input_login"
+                      className={styles.input_login}
                       type="password"
                       required
                       value={password}
@@ -97,10 +97,10 @@ function Login() {
                   </label>
                 </p>
 
-                <p className="forgot_password">FORGOTTEN YOUR PASSWORD?</p>
+                <p className={styles.forgot_password}>FORGOTTEN YOUR PASSWORD?</p>
 
                 <p>
-                  <button className="login_button">
+                  <button className={styles.login_button}>
                     LOGIN TO YOUR ACCOUNT
                   </button>
                 </p>
@@ -108,10 +108,10 @@ function Login() {
             </div>
           </div>
 
-          <div className="new_customers">
-            <p className="new_customes_tag">New Customers</p>
+          <div className={styles.new_customers}>
+            <p className={styles.new_customes_tag}>New Customers</p>
             <Link to="/signup">
-              <button className="continue_to_register">CONTINUE</button>
+              <button className={styles.continue_to_register}>CONTINUE</button>
             </Link>
           </div>
         </div>

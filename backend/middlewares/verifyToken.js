@@ -1,0 +1,83 @@
+const jwt = require("jsonwebtoken");
+
+/* VERIFY TOKEN */
+const verifyToken = (req, res, next) => {
+  const authHeader = req.headers.token;
+
+  if (authHeader) {
+    const token = authHeader.split(" ")[1];
+    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+      if (err) res.status(403).json("You are unauthorized !");
+      req.user = user;
+      next();
+    });
+  } else {
+    return res.status(401).json("You are not authenticated!");
+  }
+};
+
+/* VERIFY TOKEN AND AUTHORIZATION */
+const verifyTokenAndAuthorization = (req, res, next) => {
+  verifyToken(req, res, () => {
+    if (req.user.id === req.params.id || req.user.isAdmin) {
+      next();
+    } else {
+      res.status(403).json("You are not allowed to do that!");
+    }
+  });
+};
+
+/* VERIFY TOKEN AND ADMIN */
+
+const verifyTokenAndAdmin = (req, res, next) => {
+  verifyToken(req, res, () => {
+    if (req.user.isAdmin) {
+      next();
+    } else {
+      res.status(403).json("You are not allowed to do that!");
+    }
+  });
+};
+
+const VerifyAdmin = (req, res, next) => {
+  const authHeader = req.headers.token;
+  if (authHeader) {
+    const token = authHeader.split(" ")[1];
+    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+      if (err) {
+        res.status(403).json("You are unauthorized !");
+      } else {
+        if (user.isAdmin) {
+          req.body.userId = user.id;
+          req.body.isAdmin = user.isAdmin;
+          next();
+        } else {
+           res.status(403).json("You are unauthorized !");
+        }
+      }
+    });
+  }
+};
+
+const CartMiddleWare = (req, res, next) => {
+  const authHeader = req.headers.token;
+  if (authHeader) {
+    const token = authHeader.split(" ")[1];
+    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+      if (err) {
+        res.status(403).json("You are unauthorized !");
+      } else {
+        req.body.userId = user.id;
+        next();
+      }
+    });
+  }
+};
+
+module.exports = {
+  verifyToken,
+  verifyTokenAndAuthorization,
+  verifyTokenAndAdmin,
+  CartMiddleWare,
+  VerifyAdmin,
+};
