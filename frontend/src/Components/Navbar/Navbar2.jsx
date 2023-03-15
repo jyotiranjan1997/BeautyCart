@@ -54,9 +54,10 @@ export default function Navbar2() {
           <select onChange={handlenavigate}>
             <option value="/">All Category</option>
             <option value={"/foundation"}>Makeup</option>
-            <option value={"/hair_color"}>Hair Care</option>
+            <option value={"/hair_oil"}>Hair Care</option>
             <option value={"/wallet"}>Wallet</option>
             <option value={"/faceWash"}>Skin Products</option>
+            <option value={"/ayurvedic"}>Ayurvedic Products</option>
           </select>
         </li>
         <li>

@@ -26,7 +26,6 @@ export default function Checkout() {
   
   const handleDeleteMany =(e) => {
     dispatch(CARD_DELETE_ALL());
-    
   }
 
 

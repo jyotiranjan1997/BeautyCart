@@ -38,7 +38,7 @@ export default function AllRoutes() {
         <Route path="/Ayurvedic" element={<Ayurvedic />} />
         <Route path="/Foundation" element={<Foundation />} />
         <Route path="/faceWash" element={<FaceWash />} />
-        <Route path="/hair_color" element={<HairColor />} />
+        <Route path="/hair_oil" element={<HairColor />} />
         <Route path="/hair_brush" element={<HairBrush />} />
         <Route path="/wallet" element={<Wallet />} />
         <Route path="/shampoo" element={<Shampoo />} />

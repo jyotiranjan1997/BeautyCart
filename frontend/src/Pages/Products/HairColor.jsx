@@ -5,8 +5,8 @@ export default function HairColor() {
   return (
     <Link to="/hair_color">
       <Products
-        product_category={"hair color"}
-        product_name="Hair Colour"
+        product_category={"hair oil"}
+        product_name="Hair Oil"
       />
     </Link>
   );

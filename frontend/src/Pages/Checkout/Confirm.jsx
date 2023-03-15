@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { POST_ORDER } from "../../Redux/OrderReducer/OrderAction";
 import { GetLocal } from "../../Utils/localstorage";
 import ButtonComponent from "../../Components/ButtonComponent";
+import Loading from "../../Components/Loading/Loading";
 
 const IntialState = {
   box1: false,
@@ -18,6 +19,7 @@ const IntialState = {
 function ConfirmModal({ amount, handleDeleteMany, data, products }) {
   const [show, setShow] = useState(false);
   const [payment, setPayment] = useState(IntialState);
+  const [load, setLoad] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const Token = GetLocal("auth");
@@ -28,6 +30,7 @@ function ConfirmModal({ amount, handleDeleteMany, data, products }) {
 
   const handlePaymentSubmit = async (e) => {
     e.preventDefault();
+    setLoad(true);
     if (payment.box1 === true && payment.box2 === false) {
       setPayment(IntialState);
       let order_details = {
@@ -35,10 +38,10 @@ function ConfirmModal({ amount, handleDeleteMany, data, products }) {
         address: data,
         products,
       };
-      
-      handleClose();
-      handleDeleteMany();
+      await handleDeleteMany();
+       handleClose();
       await dispatch(POST_ORDER(order_details, Token));
+      setLoad(false);
       swal({
         title: "Product order Successfully !",
         text: "Go home page",
@@ -53,9 +56,10 @@ function ConfirmModal({ amount, handleDeleteMany, data, products }) {
         products,
       };
       
-      handleDeleteMany();
+     await handleDeleteMany();
       handleClose();
       await dispatch(POST_ORDER(order_details, Token));
+       setLoad(false);
       swal({
         title: "Product order Successfully !",
         text: "Go home page",
@@ -104,7 +108,7 @@ function ConfirmModal({ amount, handleDeleteMany, data, products }) {
         <Modal.Header closeButton>
           <Modal.Title>Payment</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+         {load ? <Loading/>: <>  <Modal.Body>
           Amount Need to Pay Rs.{amount}.00
           <Flex gap="15px" mt="15px">
             <input
@@ -130,9 +134,9 @@ function ConfirmModal({ amount, handleDeleteMany, data, products }) {
             Close
           </Button>
           <Button onClick={handlePaymentSubmit} variant="primary">
-            ok
+            Confirm order
           </Button>
-        </Modal.Footer>
+        </Modal.Footer></>}
       </Modal>
     </>
   );

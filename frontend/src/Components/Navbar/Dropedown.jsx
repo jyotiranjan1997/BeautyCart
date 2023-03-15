@@ -71,34 +71,34 @@ const MenSubNav = () => {
                         <Link>Bronzers</Link>
                       </li>
                       <li>
-                        <a href="/foundation">CC Cream</a>
+                        <Link to="/foundation">CC Cream</Link>
                       </li>
                       <li>
-                        <a href="/foundation">Countour</a>
+                        <Link to="/foundation">Countour</Link>
                       </li>
                       <li>
-                        <a href="/foundation">Concealer</a>
+                        <Link to="/foundation">Concealer</Link>
                       </li>
                       <li>
-                        <a href="/foundation">Compact</a>
+                        <Link to="/foundation">Compact</Link>
                       </li>
                       <li>
-                        <a href="/foundation">Face Primer</a>
+                        <Link to="/foundation">Face Primer</Link>
                       </li>
                       <li>
-                        <a href="/foundation">Foundation</a>
+                        <Link to="/foundation">Foundation</Link>
                       </li>
                       <li>
-                        <a href="/foundation">Highlighters</a>
+                        <Link to="/foundation">Highlighters</Link>
                       </li>
                       <li>
-                        <a href="/foundation">Loose Powder</a>
+                        <Link to="/foundation">Loose Powder</Link>
                       </li>
                       <li>
-                        <a href="/foundation">Makeup Kits</a>
+                        <Link to="/foundation">Makeup Kits</Link>
                       </li>
                       <li>
-                        <a href="/foundation">Makeup</a>
+                        <Link to="/foundation">Makeup</Link>
                       </li>
                     </ul>
                   </div>
@@ -106,7 +106,7 @@ const MenSubNav = () => {
                     <header>EYE</header>
                     <ul className={styles.megaLinks}>
                       <li>
-                        <a href="#">Contact Lenses</a>
+                        <Link to="#">Contact Lenses</Link>
                       </li>
                       <li>
                         <Link to={"/faceWash"}>Eye Liner</Link>
@@ -115,28 +115,28 @@ const MenSubNav = () => {
                         <Link>Eye Shadow</Link>
                       </li>
                       <li>
-                        <a href="#">Eye Primer</a>
+                        <Link to="#">Eye Primer</Link>
                       </li>
                       <li>
-                        <a href="#">Eye-Pallets</a>
+                        <Link to="#">Eye-Pallets</Link>
                       </li>
                       <li>
-                        <a href="#">Eye Makeup Remover</a>
+                        <Link to="#">Eye Makeup Remover</Link>
                       </li>
                       <li>
-                        <a href="#">EyeBrow Enhancer</a>
+                        <Link to="#">EyeBrow Enhancer</Link>
                       </li>
                       <li>
-                        <a href="#">False Eyelashes</a>
+                        <Link to="#">False Eyelashes</Link>
                       </li>
                       <li>
-                        <a href="#">Kajal</a>
+                        <Link to="#">Kajal</Link>
                       </li>
                       <li>
-                        <a href="#">Masacara</a>
+                        <Link to="#">Masacara</Link>
                       </li>
                       <li>
-                        <a href="#">Under Eye Concealer</a>
+                        <Link to="#">Under Eye Concealer</Link>
                       </li>
                     </ul>
                   </div>
@@ -144,7 +144,7 @@ const MenSubNav = () => {
                     <header>Lips</header>
                     <ul className={styles.megaLinks}>
                       <li>
-                        <a href="#">Lipsticks</a>
+                        <Link to="#">Lipsticks</Link>
                       </li>
                       <li>
                         <Link to={"/"}>Liquid Sticks</Link>
@@ -153,19 +153,19 @@ const MenSubNav = () => {
                         <Link>Lip Liner</Link>
                       </li>
                       <li>
-                        <a href="#">Lip Gloss</a>
+                        <Link to="#">Lip Gloss</Link>
                       </li>
                       <li>
-                        <a href="#">Lip Balm</a>
+                        <Link to="#">Lip Balm</Link>
                       </li>
                       <li>
-                        <a href="#">Lip Crayon</a>
+                        <Link to="#">Lip Crayon</Link>
                       </li>
                       <li>
-                        <a href="#">Lip Stain</a>
+                        <Link to="#">Lip Stain</Link>
                       </li>
                       <li>
-                        <a href="#">Lip Plumber</a>
+                        <Link to="#">Lip Plumber</Link>
                       </li>
                     </ul>
                   </div>
@@ -173,7 +173,7 @@ const MenSubNav = () => {
                     <header>NAILS</header>
                     <ul className={styles.megaLinks}>
                       <li>
-                        <a href="#">Mainicure & Pedicure</a>
+                        <Link to="#">Mainicure & Pedicure</Link>
                       </li>
                       <li>
                         <Link to={"/"}>Nail Polish</Link>
@@ -182,13 +182,13 @@ const MenSubNav = () => {
                         <Link>Nail Arts Kits</Link>
                       </li>
                       <li>
-                        <a href="#">Nail Care</a>
+                        <Link to="#">Nail Care</Link>
                       </li>
                       <li>
-                        <a href="#">Nail Polish Sets</a>
+                        <Link to="#">Nail Polish Sets</Link>
                       </li>
                       <li>
-                        <a href="#">Nail Polish Remover</a>
+                        <Link to="#">Nail Polish Remover</Link>
                       </li>
                     </ul>
                   </div>
@@ -196,28 +196,28 @@ const MenSubNav = () => {
                     <header>TOOL BRUSHES</header>
                     <ul className={styles.megaLinks}>
                       <li>
-                        <a href="#">Blush Brush</a>
+                        <Link to="#">Blush Brush</Link>
                       </li>
                       <li>
                         <Link>Eyelash Curls</Link>
                       </li>
                       <li>
-                        <a href="#">Eye Brush</a>
+                        <Link to="#">Eye Brush</Link>
                       </li>
                       <li>
-                        <a href="#">Face Brush</a>
+                        <Link to="#">Face Brush</Link>
                       </li>
                       <li>
-                        <a href="#">Lip Brush</a>
+                        <Link to="#">Lip Brush</Link>
                       </li>
                       <li>
-                        <a href="#">Makeup Pouches</a>
+                        <Link to="#">Makeup Pouches</Link>
                       </li>
                       <li>
-                        <a href="#">Mirrors</a>
+                        <Link to="#">Mirrors</Link>
                       </li>
                       <li>
-                        <a href="#">Sponges</a>
+                        <Link to="#">Sponges</Link>
                       </li>
                     </ul>
                   </div>
@@ -250,7 +250,7 @@ const MenSubNav = () => {
                     <header>EYE CARE</header>
                     <ul className={styles.megaLinks}>
                       <li>
-                        <a href="#">Dark Circle</a>
+                        <Link to="#">Dark Circle</Link>
                       </li>
                       <li>
                         <Link to={"/"}>Eye Contour Care</Link>
@@ -259,19 +259,19 @@ const MenSubNav = () => {
                         <Link>Eye Cream</Link>
                       </li>
                       <li>
-                        <a href="#">Eye Mask</a>
+                        <Link to="#">Eye Mask</Link>
                       </li>
                       <li>
-                        <a href="#">Eye Serums</a>
+                        <Link to="#">Eye Serums</Link>
                       </li>
                       <li>
-                        <a href="#">Pffiness</a>
+                        <Link to="#">Pffiness</Link>
                       </li>
                       <li>
-                        <a href="#">Under Eye Creams</a>
+                        <Link to="#">Under Eye Creams</Link>
                       </li>
                       <li>
-                        <a href="#">Under Eye Wrinkles</a>
+                        <Link to="#">Under Eye Wrinkles</Link>
                       </li>
                     </ul>
                   </div>
@@ -279,7 +279,7 @@ const MenSubNav = () => {
                     <header>FACE CARE</header>
                     <ul className={styles.megaLinks}>
                       <li>
-                        <a href="#">Anti-Aging Creams</a>
+                        <Link to="#">Anti-Aging Creams</Link>
                       </li>
                       <li>
                         <Link to={"/"}>Bleach Creams</Link>
@@ -288,34 +288,34 @@ const MenSubNav = () => {
                         <Link>Face Wash</Link>
                       </li>
                       <li>
-                        <a href="#">Facial Wipes</a>
+                        <Link to="#">Facial Wipes</Link>
                       </li>
                       <li>
-                        <a href="#">Face Oil</a>
+                        <Link to="#">Face Oil</Link>
                       </li>
                       <li>
-                        <a href="#">Face Cleansers</a>
+                        <Link to="#">Face Cleansers</Link>
                       </li>
                       <li>
-                        <a href="#">Face Kits</a>
+                        <Link to="#">Face Kits</Link>
                       </li>
                       <li>
-                        <a href="#">Face Tools</a>
+                        <Link to="#">Face Tools</Link>
                       </li>
                       <li>
-                        <a href="#">Moisturisers</a>
+                        <Link to="#">Moisturisers</Link>
                       </li>
                       <li>
-                        <a href="#">Mask and Peels</a>
+                        <Link to="#">Mask and Peels</Link>
                       </li>
                       <li>
-                        <a href="#">Serum</a>
+                        <Link to="#">Serum</Link>
                       </li>
                       <li>
-                        <a href="#">Toner</a>
+                        <Link to="#">Toner</Link>
                       </li>
                       <li>
-                        <a href="#">Cleanser</a>
+                        <Link to="#">Cleanser</Link>
                       </li>
                     </ul>
                   </div>
@@ -323,7 +323,7 @@ const MenSubNav = () => {
                     <header>BODY CARE</header>
                     <ul className={styles.megaLinks}>
                       <li>
-                        <a href="#">All Creams</a>
+                        <Link to="#">All Creams</Link>
                       </li>
                       <li>
                         <Link to={"/"}>Body Mosturizers</Link>
@@ -332,19 +332,19 @@ const MenSubNav = () => {
                         <Link>Body Toners</Link>
                       </li>
                       <li>
-                        <a href="#">Body Sun Care</a>
+                        <Link to="#">Body Sun Care</Link>
                       </li>
                       <li>
-                        <a href="#">Brightening Lotions</a>
+                        <Link to="#">Brightening Lotions</Link>
                       </li>
                       <li>
-                        <a href="#">Wrinkles</a>
+                        <Link to="#">Wrinkles</Link>
                       </li>
                       <li>
-                        <a href="#">Hand Creams</a>
+                        <Link to="#">Hand Creams</Link>
                       </li>
                       <li>
-                        <a href="#">Hand and Feet</a>
+                        <Link to="#">Hand and Feet</Link>
                       </li>
                     </ul>
                   </div>
@@ -386,7 +386,7 @@ const MenSubNav = () => {
                     <header>HAIR CARE</header>
                     <ul className={styles.megaLinks}>
                       <li>
-                        <a href="#">Color Protection</a>
+                        <Link to="#">Color Protection</Link>
                       </li>
                       <li>
                         <Link to={"/"}>Dandruff</Link>
@@ -395,25 +395,25 @@ const MenSubNav = () => {
                         <Link>Dry Shampoo</Link>
                       </li>
                       <li>
-                        <a href="#">Gels & Waxes</a>
+                        <Link to="#">Gels & Waxes</Link>
                       </li>
                       <li>
-                        <a href="#">Hair Spray</a>
+                        <Link to="#">Hair Spray</Link>
                       </li>
                       <li>
-                        <a href="#">Hair Dye</a>
+                        <Link to="#">Hair Dye</Link>
                       </li>
                       <li>
-                        <a href="#">Hair Creams</a>
+                        <Link to="#">Hair Creams</Link>
                       </li>
                       <li>
-                        <a href="#">Hair Styling</a>
+                        <Link to="#">Hair Styling</Link>
                       </li>
                       <li>
-                        <a href="#">Hairfall & Thinning</a>
+                        <Link to="#">Hairfall & Thinning</Link>
                       </li>
                       <li>
-                        <a href="#">Straightners</a>
+                        <Link to="#">Straightners</Link>
                       </li>
                     </ul>
                   </div>
@@ -421,7 +421,7 @@ const MenSubNav = () => {
                     <header>HAIR LOSS</header>
                     <ul className={styles.megaLinks}>
                       <li>
-                        <a href="#">Conditioners</a>
+                        <Link to="#">Conditioners</Link>
                       </li>
                       <li>
                         <Link to={"/"}>Hair Oil</Link>
@@ -430,10 +430,10 @@ const MenSubNav = () => {
                         <Link>Hair Serum</Link>
                       </li>
                       <li>
-                        <a href="#">Hair Growth Solutions</a>
+                        <Link to="#">Hair Growth Solutions</Link>
                       </li>
                       <li>
-                        <a href="#">Shampoo</a>
+                        <Link to="#">Shampoo</Link>
                       </li>
                     </ul>
                   </div>
@@ -479,7 +479,7 @@ const MenSubNav = () => {
                     <header>BATH & BODY</header>
                     <ul className={styles.megaLinks}>
                       <li>
-                        <a href="#">Body Cleansers</a>
+                        <Link to="#">Body Cleansers</Link>
                       </li>
                       <li>
                         <Link to={"/"}>Body Massage Oil</Link>
@@ -488,16 +488,16 @@ const MenSubNav = () => {
                         <Link>Body Wash</Link>
                       </li>
                       <li>
-                        <a href="#">Essential Oil</a>
+                        <Link to="#">Essential Oil</Link>
                       </li>
                       <li>
-                        <a href="#">Foot Cream</a>
+                        <Link to="#">Foot Cream</Link>
                       </li>
                       <li>
-                        <a href="#">Scrubs & Exfolitants</a>
+                        <Link to="#">Scrubs & Exfolitants</Link>
                       </li>
                       <li>
-                        <a href="#">Ubtan and Face Packs</a>
+                        <Link to="#">Ubtan and Face Packs</Link>
                       </li>
                     </ul>
                   </div>
@@ -505,7 +505,7 @@ const MenSubNav = () => {
                     <header>BATH ACCESSORIES</header>
                     <ul className={styles.megaLinks}>
                       <li>
-                        <a href="#">Bath & Brushes</a>
+                        <Link to="#">Bath & Brushes</Link>
                       </li>
                       <li>
                         <Link to={"/"}>Loofaas</Link>
@@ -514,7 +514,7 @@ const MenSubNav = () => {
                         <Link>Shower Caps</Link>
                       </li>
                       <li>
-                        <a href="#">Sponges</a>
+                        <Link to="#">Sponges</Link>
                       </li>
                     </ul>
                   </div>
@@ -522,7 +522,7 @@ const MenSubNav = () => {
                     <header>BATH & SHOWER</header>
                     <ul className={styles.megaLinks}>
                       <li>
-                        <a href="#">Body Soaps</a>
+                        <Link to="#">Body Soaps</Link>
                       </li>
                       <li>
                         <Link to={"/"}>Shower Gel</Link>
@@ -570,7 +570,7 @@ const MenSubNav = () => {
                     <header>BABY CARE</header>
                     <ul className={styles.megaLinks}>
                       <li>
-                        <a href="#">Bath Time</a>
+                        <Link to="#">Bath Time</Link>
                       </li>
                       <li>
                         <Link to={"/"}>Diapers</Link>
@@ -579,22 +579,22 @@ const MenSubNav = () => {
                         <Link>Lotions</Link>
                       </li>
                       <li>
-                        <a href="#">Powder</a>
+                        <Link to="#">Powder</Link>
                       </li>
                       <li>
-                        <a href="#">Shmapoos</a>
+                        <Link to="#">Shmapoos</Link>
                       </li>
                       <li>
-                        <a href="#">Soaps</a>
+                        <Link to="#">Soaps</Link>
                       </li>
                       <li>
-                        <a href="#">Sterilizers</a>
+                        <Link to="#">Sterilizers</Link>
                       </li>
                       <li>
-                        <a href="#">Rash Creams</a>
+                        <Link to="#">Rash Creams</Link>
                       </li>
                       <li>
-                        <a href="#">Wipes</a>
+                        <Link to="#">Wipes</Link>
                       </li>
                     </ul>
                   </div>
@@ -602,7 +602,7 @@ const MenSubNav = () => {
                     <header>MOM CARE</header>
                     <ul className={styles.megaLinks}>
                       <li>
-                        <a href="#">Lotion & Creams</a>
+                        <Link to="#">Lotion & Creams</Link>
                       </li>
                       <li>
                         <Link to={"/"}>Personal Care</Link>
@@ -681,40 +681,40 @@ const MenSubNav = () => {
                     <header>NATURAL SKIN</header>
                     <ul className={styles.megaLinks}>
                       <li>
-                        <a href="#">Body Wash</a>
+                        <Link to="/ayurvedic">Body Wash</Link>
                       </li>
                       <li>
-                        <Link to={"/"}>Body Lotion</Link>
+                        <Link to={"/ayurvedic"}>Body Lotion</Link>
                       </li>
                       <li>
                         <Link>Cleanser</Link>
                       </li>
                       <li>
-                        <a href="#">Cream</a>
+                        <Link to="/ayurvedic">Cream</Link>
                       </li>
                       <li>
-                        <a href="#">Eye Care</a>
+                        <Link to="/ayurvedic">Eye Care</Link>
                       </li>
                       <li>
-                        <a href="#">Face Wash</a>
+                        <Link to="/ayurvedic">Face Wash</Link>
                       </li>
                       <li>
-                        <a href="#">Gel</a>
+                        <Link to="/ayurvedic">Gel</Link>
                       </li>
                       <li>
-                        <a href="#">Lip Care</a>
+                        <Link to="/ayurvedic">Lip Care</Link>
                       </li>
                       <li>
-                        <a href="#">Mask</a>
+                        <Link to="#">Mask</Link>
                       </li>
                       <li>
-                        <a href="#">Pack</a>
+                        <Link to="#">Pack</Link>
                       </li>
                       <li>
-                        <a href="#">Scrub</a>
+                        <Link to="#">Scrub</Link>
                       </li>
                       <li>
-                        <a href="#">Sun Protection</a>
+                        <Link to="#">Sun Protection</Link>
                       </li>
                     </ul>
                   </div>
@@ -722,7 +722,7 @@ const MenSubNav = () => {
                     <header>NAURAL HAIR</header>
                     <ul className={styles.megaLinks}>
                       <li>
-                        <a href="#">Conditioners</a>
+                        <Link to="#">Conditioners</Link>
                       </li>
                       <li>
                         <Link to={"/"}>Hair Oils</Link>
