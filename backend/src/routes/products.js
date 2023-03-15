@@ -8,7 +8,10 @@ const {
   getProductCount,
   getProductStock,
 } = require("../controllers/productController");
-const { verifyTokenAndAdmin, VerifyAdmin } = require("../middlewares/verifyToken");
+const {
+  verifyTokenAndAdmin,
+  VerifyAdmin,
+} = require("../middlewares/verifyToken");
 
 const productRoute = express.Router();
 
@@ -18,7 +21,6 @@ productRoute.post("/", VerifyAdmin, addProduct);
 
 /* GET ALL PRODUCTS */
 productRoute.get("/", getProducts);
-
 
 productRoute.get("/count", VerifyAdmin, getProductCount);
 
@@ -33,4 +35,4 @@ productRoute.put("/:id", verifyTokenAndAdmin, updateProduct);
 /* DELETE */
 productRoute.delete("/:id", verifyTokenAndAdmin, deleteProduct);
 
-module.exports = productRoute;
+module.exports = {productRoute};

@@ -22,18 +22,16 @@ const SingleProduct = () => {
   const item = location.state.data;
   const handleCartClick = (e) => {
     e.preventDefault();
-    let val = item.price.split(".");
-    let sum = "";
-    for (let i = 1; i < val[0].length; i++) {
-      sum += val[0][i];
-    }
+    let val = item.price;
+    let sum =+val;
+    
 
     setLoad(true);
     if (Token) {
       const data = {
         image: item.image,
-        price: +sum,
-        name: item.description,
+        price: sum,
+        name: item.name,
       };
 
       dispatch(ADD_CARD_DATA(data, Token)).then((res) => {
@@ -97,11 +95,24 @@ const SingleProduct = () => {
             <GoStar />
             <GoStar />
           </div>
-          <div id={style.price_pink_div}>
+          {/* <div id={style.price_pink_div}>
             <h4>{item.price}</h4>
           </div>
           <div id={style.main_add_cart_div}>
             <div id={style.add_to_cart_div} onClick={handleCartClick}>
+              <FaShoppingBasket />
+              <p>Add To Cart</p>
+            </div>
+            <div id={style.hrt_div}>
+              <HiHeart color="white" />
+            </div>
+          </div> */}
+
+          <div id={style.price_pink_div}>
+            <h4>{"₹ " + item.price}</h4>
+          </div>
+          <div className={style.Div} onClick={handleCartClick}>
+            <div id={style.add_to_cart_div}>
               <FaShoppingBasket />
               <p>Add To Cart</p>
             </div>

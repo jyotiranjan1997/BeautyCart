@@ -6,7 +6,7 @@ const {
   getUsers,
   deleteUser,
   getUserCount,
-  updateUserById
+  updateUserById,
 } = require("../controllers/userController");
 const { VerifyAdmin, CartMiddleWare } = require("../middlewares/verifyToken");
 
@@ -18,12 +18,8 @@ userRoutes.post("/signup", userSignup);
 /* LOGIN */
 userRoutes.post("/login", userLogin);
 
-
-
-
 /* Get user Count*/
 userRoutes.get("/count", VerifyAdmin, getUserCount);
-
 
 /* GET ALL USER */
 userRoutes.get("/", VerifyAdmin, getUsers);
@@ -37,7 +33,7 @@ userRoutes.patch("/singleuser", CartMiddleWare, updateUserById);
 /* DELETE USER */
 userRoutes.delete("/:id", VerifyAdmin, deleteUser);
 
-module.exports = userRoutes;
+module.exports = {userRoutes};
 
 // firstName
 // lastName

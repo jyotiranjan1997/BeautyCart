@@ -9,11 +9,9 @@ import Account from "./Account";
 
 const getData = async (data) => {
   try {
-    console.log(data)
     let res = await axios.get(
       `https://magnificent-jade-girdle.cyclic.app/navbars?q=${data}`
     );
-    console.log(res)
     return res.data;
   } catch (err) {
     return err;
@@ -28,11 +26,12 @@ export default function Navbar2() {
     setQ(data);
   };
   useEffect(() => {
-    let timeout = setTimeout(() => {
+    let timeout = setTimeout(async() => {
       if (q === "") {
         setSuggestion([]);
       } else {
-        setSuggestion(getData(q));
+        let data = await getData(q);
+        setSuggestion(data);
       }
     }, 1000);
     return () => clearTimeout(timeout);
@@ -89,7 +88,7 @@ export default function Navbar2() {
                         }}
                       >
                         <img src={item.image} style={{ height: "40px" }} />
-                        <h3>{item.description}</h3>
+                        <h3>{item.name}</h3>
                       </div>
                     </div>
                   );

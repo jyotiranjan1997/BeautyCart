@@ -28,4 +28,4 @@ const navbarSchema = new mongoose.Schema(
 
 const Navbar = mongoose.model("Navbar", navbarSchema);
 
-module.exports = Navbar;
+module.exports = {Navbar};

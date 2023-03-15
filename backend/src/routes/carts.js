@@ -6,9 +6,7 @@ const {
   getUserCart,
   deleteFromCartMany,
 } = require("../controllers/cartController");
-const {
-  CartMiddleWare,
-} = require("../middlewares/verifyToken");
+const { CartMiddleWare } = require("../middlewares/verifyToken");
 
 const cartRoutes = express.Router();
 
@@ -23,9 +21,7 @@ cartRoutes.delete("/deletemany", CartMiddleWare, deleteFromCartMany);
 /* DELETE */
 cartRoutes.delete("/:id", CartMiddleWare, deleteFromCart);
 
-
-
 /* GET USER CART BY USERID */
 cartRoutes.get("/", CartMiddleWare, getUserCart);
 
-module.exports = cartRoutes;
+module.exports = {cartRoutes};

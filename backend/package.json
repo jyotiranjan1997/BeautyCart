@@ -1,7 +1,7 @@
 {
-  "name": "beautybebo.com-backend",
+  "name": "beautycart-backend",
   "version": "1.0.0",
-  "description": "This is the backend of beautybebo.com.",
+  "description": "This is the backend of beautycart",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"

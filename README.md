@@ -71,6 +71,8 @@
 - ### Cart Page
   ![](./assets/Cart.png)
 - ### Checkout Page
-  <!-- ![](./assets/checkout.png) -->
+  ![](./assets/Checkout.png)
+  - ### Oder Page
+    ![](./assets/Oder.png)
 - ### Footer
   ![](./assets/Footer.png)

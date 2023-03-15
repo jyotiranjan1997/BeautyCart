@@ -1,4 +1,4 @@
-const Product = require("../models/Product");
+const {Product} = require("../models/Product");
 
 /* ADD to NAVBAR */
 // const addNavbarItem = async (req, res) => {
@@ -29,4 +29,4 @@ const getNavbarProducts = async (req, res) => {
   }
 };
 
-module.exports = { addNavbarItem, getNavbarProducts };
+module.exports = { getNavbarProducts };

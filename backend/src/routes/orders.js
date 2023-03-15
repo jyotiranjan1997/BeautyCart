@@ -25,4 +25,4 @@ orderRoute.get("/", verifyTokenAndAdmin, getOrdersAdmin);
 /* DELETE */
 orderRoute.delete("/:id", verifyTokenAndAdmin, deleteOrder);
 
-module.exports = orderRoute;
+module.exports = {orderRoute};

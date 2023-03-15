@@ -1,29 +1,15 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const mongoose = require("mongoose");
-const userRoutes = require("./routes/users");
-const productRoute = require("./routes/products");
-const cartRoutes = require("./routes/carts");
-const orderRoute = require("./routes/orders");
-const dotenv = require("dotenv");
-const navbarRoutes = require("./routes/navbar");
-dotenv.config();
+const { userRoutes } = require("./src/routes/users");
+const { productRoute } = require("./src/routes/products");
+const { cartRoutes } = require("./src/routes/carts");
+const { orderRoute } = require("./src/routes/orders");
+const { connect } = require("./src/config/db");
+const { navbarRoutes } = require("./src/routes/navbar");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-
-/* MONGODB CONNECT */
-mongoose.set("strictQuery", false);
-
-mongoose
-  .connect(process.env.MONGODB_URL)
-  .then(() => {
-    console.log("Database connected successfully");
-  })
-  .catch((err) => {
-    console.log(err);
-    console.log("Unable to connect !");
-  });
 
 /* BASIC */
 app.use(express.json());
@@ -43,5 +29,6 @@ app.use("/navbars", navbarRoutes);
 
 /* LISTENING */
 app.listen(PORT, () => {
+  connect();
   console.log(`Server is running on http://localhost:${PORT}`);
 });

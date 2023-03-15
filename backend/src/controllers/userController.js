@@ -1,4 +1,4 @@
-const User = require("../models/User");
+const { User } = require("../models/User");
 const jwt = require("jsonwebtoken");
 const CryptoJS = require("crypto-js");
 
@@ -69,7 +69,6 @@ const userLogin = async (req, res) => {
 
 /* GET ALL USERS */
 
-
 const getUserCount = async (req, res) => {
   console.log("cc");
   try {
@@ -82,23 +81,18 @@ const getUserCount = async (req, res) => {
 
 const getUsers = async (req, res) => {
   const page = req.params.Page;
-  const skip = (+page * 5)-5;
+  const skip = +page * 5 - 5;
 
   try {
-    const users = await User.find()
+    const users = await User.find();
     res.status(200).json(users);
   } catch (err) {
     res.status(500).json(err);
   }
 };
 
-
-
-
-
 /* GET USER BY ID */
 const getUserById = async (req, res) => {
-
   const { userId } = req.body;
 
   try {
@@ -111,7 +105,7 @@ const getUserById = async (req, res) => {
 };
 
 const updateUserById = async (req, res) => {
-    const { userId, firstName, lastName, email, phone } = req.body;
+  const { userId, firstName, lastName, email, phone } = req.body;
   try {
     const user = await User.findByIdAndUpdate(
       { _id: userId },
@@ -128,7 +122,7 @@ const updateUserById = async (req, res) => {
 
 const deleteUser = async (req, res) => {
   try {
-    await User.findByIdAndDelete({_id:req.params.id});
+    await User.findByIdAndDelete({ _id: req.params.id });
     res.status(200).json("User has been deleted...!");
   } catch (err) {
     res.status(500).json(err);
