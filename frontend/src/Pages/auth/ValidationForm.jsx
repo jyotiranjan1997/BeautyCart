@@ -1,10 +1,13 @@
 import "./ValidationForm.css";
-import { Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Loading from "../../Components/Loading/Loading";
 import swal from "sweetalert";
+import { auth } from "../../Firebase";
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import HandleLoginOtp from "../../Components/MobileOtp/HandleLoginOtp";
 const initialState = {
   firstName: "",
   lastName: "",
@@ -16,6 +19,12 @@ const initialState = {
 const ValidationForm = () => {
   const [fields, setFields] = useState(initialState);
   const [Load, setload] = useState(false);
+  const [show, setShow] = useState(false);
+  //*  Modal Open & Close Function //
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  //*  Modal Open & Close Function //
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -23,13 +32,137 @@ const ValidationForm = () => {
     setFields({ ...fields, [name]: value });
   };
 
+  // Captha verifier //
+  const generateRecaptcha = () => {
+    window.recaptchaVerifier = new RecaptchaVerifier(
+      "recaptcha-container",
+      {
+        size: "invisible",
+        callback: (response) => {
+          // reCAPTCHA solved, allow signInWithPhoneNumber.
+        },
+      },
+      auth
+    );
+  };
+  // Captha verifier End //
+
+  // Send Otp handle //
+
+  const HandleOtp = (Number) => {
+    generateRecaptcha();
+    let appVerifier = window.recaptchaVerifier;
+    const phoneNumber = "+91" + Number;
+    console.log(phoneNumber);
+    signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+      .then((confirmationResult) => {
+        window.confirmationResult = confirmationResult;
+        handleShow();
+         setload(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        swal({
+          title: "Something Went wrong !",
+          text: "Please Enter correct Number",
+          icon: "error",
+          button: "ok",
+        });
+      });
+  };
+
+  //  Post data to Database and Create Account Start
+
+  const Register = () => {
+    axios
+      .post("https://magnificent-jade-girdle.cyclic.app/users/signup", fields)
+      .then((res) => {
+        console.log(res);
+        swal({
+          title: "Register successful !",
+          text: "Go to Login",
+          icon: "success",
+          button: "ok",
+        }).then(() => {
+         
+          navigate("/login");
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        swal({
+          title: "Register Failed !",
+          text: "Please Try again",
+          icon: "error",
+          button: "ok",
+        }).then(() => {
+        });
+      });
+  };
+
+  //  Post data to Database and Create Account End
+
+  // Verify Otp start
+
+  const verifyOtp = (Otp) => {
+     setload(true);
+    let confirmationResult = window.confirmationResult;
+    confirmationResult
+      .confirm(Otp)
+      .then((result) => {
+        // User signed in successfully.
+        const user = result.user;
+       
+        Register();
+         setload(false);
+        // if (token && authOtp) {
+
+        // } else {
+
+        // }
+      })
+      .catch((error) => {
+         setload(false);
+        swal({
+          title: "Mobile OTP not verified!",
+          text: "Please Try again",
+          icon: "error",
+          button: "ok",
+        });
+      });
+  };
+
+  // Verify Otp End
+
+  // Send Otp handle //
+
   const onSubmit = async (event) => {
     event.preventDefault();
 
-    if (fields.password.length < 6) {
+    if (
+      fields.firstName === "" ||
+      fields.firstName === null ||
+      fields.lastName === "" ||
+      fields.lastName === null ||
+      fields.email === "" ||
+      fields.email === null ||
+      fields.phone === "" ||
+      fields.phone === null ||
+      fields.password === "" ||
+      fields.password === null
+    ) {
       swal({
         title: "Register Failed !",
-        text: "Password must be 6 letters",
+        text: "Please add required fields !",
+        icon: "error",
+        button: "ok",
+      }).then(() => {
+        setload(false);
+      });
+    } else if (!fields.email.includes("@") || !fields.email.includes(".")) {
+      swal({
+        title: "Incooect Email Id Entered!",
+        text: "Add a Valid Email Id",
         icon: "error",
         button: "ok",
       });
@@ -40,50 +173,23 @@ const ValidationForm = () => {
         icon: "error",
         button: "ok",
       });
-    } else if (
-      fields.firstName !== "" ||
-      fields.lastName !== "" ||
-      fields.email !== "" ||
-      fields.phone !== "" ||
-      fields.password !== ""
-    ) {
-      setload(true);
-      axios
-        .post("https://magnificent-jade-girdle.cyclic.app/users/signup", fields)
-        .then((res) => {
-          console.log(res);
-          swal({
-            title: "Register successful !",
-            text: "Go to Login",
-            icon: "success",
-            button: "ok",
-          }).then(() => {
-            setload(false);
-            navigate("/login");
-          });
-        })
-        .catch((err) => {
-          console.log(err);
-          swal({
-            title: "Register Failed !",
-            text: "Please Try again",
-            icon: "error",
-            button: "ok",
-          }).then(() => {
-            setload(false);
-          });
-        });
-    } else {
+    } else if (fields.password.length < 6) {
       swal({
         title: "Register Failed !",
-        text: "Please add required fields !",
+        text: "Password must be more than 6 letters",
         icon: "error",
         button: "ok",
-      }).then(() => {
-        setload(false);
       });
+    } else {
+      setload(true);
+      HandleOtp(fields.phone);
     }
   };
+
+
+  useEffect(() => {
+    
+  },[Load])
 
   return (
     <div className="validation_form">
@@ -107,6 +213,7 @@ const ValidationForm = () => {
                 name="firstName"
                 value={fields.firstName}
                 onChange={handleChange}
+                required
               />
             </label>
           </p>
@@ -137,6 +244,7 @@ const ValidationForm = () => {
                 name="email"
                 value={fields.email}
                 onChange={handleChange}
+                required
               />
             </label>
           </p>
@@ -150,8 +258,10 @@ const ValidationForm = () => {
                 className="validation_input"
                 type="tel"
                 name="phone"
+                maxLength={10}
                 value={fields.phone}
                 onChange={handleChange}
+                required
               />
             </label>
           </p>
@@ -167,6 +277,7 @@ const ValidationForm = () => {
                 name="password"
                 value={fields.password}
                 onChange={handleChange}
+                required
               />
             </label>
             <br />
@@ -207,6 +318,16 @@ const ValidationForm = () => {
           </p>
         </form>
       )}
+      <div className="visible">
+        <HandleLoginOtp
+          handleClose={handleClose}
+          mbl={fields.phone}
+          show={show}
+          verifyOtp={verifyOtp}
+          Load={Load}
+        />
+      </div>
+      <Box id="recaptcha-container" mb="10px" />
     </div>
   );
 };

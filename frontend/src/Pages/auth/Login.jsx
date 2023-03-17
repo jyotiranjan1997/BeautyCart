@@ -4,12 +4,28 @@ import { useState } from "react";
 import axios from "axios";
 import { SetLocal } from "../../Utils/localstorage";
 import Loading from "../../Components/Loading/Loading";
-import swal from "sweetalert"
+import swal from "sweetalert";
+import { Box } from "@chakra-ui/react";
+import HandleForget from "../../Components/MobileOtp/HandleForget";
+import { auth } from "../../Firebase";
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import PasswordChange from "../../Components/MobileOtp/PasswordChange";
 
 function Login() {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [Load, setload] = useState(false);
+  const [show, setShow] = useState(false);
+  const [show2, setShow2] = useState(false);
+  const [user, setUser] = useState(null);
+  const [data, setData] = useState("");
+  const [Load2, setload2] = useState(false);
+  //*  Modal Open & Close Function //
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const handleClose2 = () => setShow2(false);
+  const handleShow2 = () => setShow2(true);
   const navigate = useNavigate();
 
   const handleLogin = (event) => {
@@ -56,6 +72,80 @@ function Login() {
     }
   };
 
+  // Captha verifier //
+  const generateRecaptcha = () => {
+    window.recaptchaVerifier = new RecaptchaVerifier(
+      "recaptcha-container",
+      {
+        size: "invisible",
+        callback: (response) => {
+          // reCAPTCHA solved, allow signInWithPhoneNumber.
+        },
+      },
+      auth
+    );
+  };
+  // Captha verifier End //
+
+  // Send Otp handle //
+
+  const HandleOtp = (Number) => {
+    generateRecaptcha();
+    let appVerifier = window.recaptchaVerifier;
+    const phoneNumber = "+91" + Number;
+
+    signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+      .then((confirmationResult) => {
+        window.confirmationResult = confirmationResult;
+        setload2(false);
+      })
+      .catch((error) => {
+        setload2(false);
+        swal({
+          title: "Something Went wrong !",
+          text: "Please Enter correct Number",
+          icon: "error",
+          button: "ok",
+        });
+      });
+  };
+
+  // Verify Otp start
+
+  const verifyOtp = (Otp) => {
+    setload(true);
+    let confirmationResult = window.confirmationResult;
+    confirmationResult
+      .confirm(Otp)
+      .then((result) => {
+        // User signed in successfully.
+        const user = result.user;
+        setload(false);
+        handleClose();
+        handleShow2();
+      })
+      .catch((error) => {
+        setload(false);
+        swal({
+          title: "Mobile OTP not verified!",
+          text: "Please Try again",
+          icon: "error",
+          button: "ok",
+        });
+      });
+  };
+
+  // Verify Otp End
+
+  //  Forgot Password logics start //
+
+  const handleForgetPassword = (e) => {
+    e.preventDefault();
+    handleShow();
+  };
+
+  //  Forgot Password logics End //
+
   return (
     <div className={styles.login_parent}>
       {Load ? (
@@ -68,7 +158,7 @@ function Login() {
             <div className={styles.login_form}>
               <form onSubmit={handleLogin}>
                 {/* For email */}
-                <p>
+                <div>
                   <label>
                     * Email address
                     <br />
@@ -80,10 +170,25 @@ function Login() {
                       type="email"
                     />
                   </label>
-                </p>
-
+                </div>
+                <div className="visible">
+                 {user && <PasswordChange show2={show2} user_id={user._id} handleClose2={handleClose2} />}
+                  <HandleForget
+                    handleClose={handleClose}
+                    show={show}
+                    verifyOtp={verifyOtp}
+                    Load={Load}
+                    setData={setData}
+                    data={data}
+                    HandleOtp={HandleOtp}
+                    Load2={Load2}
+                      setload2={setload2}
+                      setUser={setUser}
+                    // setload={setload}
+                  />
+                </div>
                 {/* Form password */}
-                <p>
+                <div>
                   <label>
                     * Password
                     <br />
@@ -95,15 +200,20 @@ function Login() {
                       onChange={(event) => setPassword(event.target.value)}
                     />
                   </label>
+                </div>
+
+                <p
+                  className={styles.forgot_password}
+                  onClick={handleForgetPassword}
+                >
+                  FORGOTTEN YOUR PASSWORD?
                 </p>
 
-                <p className={styles.forgot_password}>FORGOTTEN YOUR PASSWORD?</p>
-
-                <p>
+                <div>
                   <button className={styles.login_button}>
                     LOGIN TO YOUR ACCOUNT
                   </button>
-                </p>
+                </div>
               </form>
             </div>
           </div>
@@ -116,6 +226,7 @@ function Login() {
           </div>
         </div>
       )}
+      <Box id="recaptcha-container" mb="10px" />
     </div>
   );
 }

@@ -96,7 +96,7 @@ export default function Profile() {
                 >
                   <h1>{Orders.length}</h1>
                   <Link to="/orders">
-                    <ButtonComponent bgColor="green.400" Title="Oders" />
+                    <ButtonComponent bgColor="green.400" Title="Orders" />
                   </Link>
                 </div>
                 <div

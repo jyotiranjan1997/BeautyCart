@@ -64,7 +64,7 @@ function EditComponent({
 
   const handleClick = (e) => {
     // e.preventDefault();
-    if (data.Qty <= 5 && data.Price <= 3000) {
+    if (data.Qty <= 5) {
       let new_value = data.Qty + 1;
       setData({ ...data, Price: new_value * +price, Qty: new_value });
     } else {

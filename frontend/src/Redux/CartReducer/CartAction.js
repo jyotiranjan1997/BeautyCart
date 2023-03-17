@@ -25,6 +25,17 @@ export const cartUpdate_Failed = (payload) => {
   return { type: CART_UPDATE_FAILED, payload };
 };
 
+export const cartDelete_Req = () => {
+  return { type: "CART_DELETE_REQ" };
+};
+
+export const cartDelete_Success = (payload) => {
+  return { type: "CART_DELETE", payload };
+};
+export const cartDelete_Failed = (payload) => {
+  return { type: "CART_DELETE_FAILED", payload };
+};
+
 const Cart_SUCCESS = (payload) => {
   return { type: CART_SUCCESS, payload };
 };
@@ -99,7 +110,7 @@ export const EDIT_CARD_DELETE = (data) => (dispatch) => {
 };
 
 export const CARD_DELETE_ALL = () => (dispatch) => {
-  dispatch(cartUpdate_Req());
+  dispatch(cartDelete_Req());
   axios
     .delete(`https://magnificent-jade-girdle.cyclic.app/carts/deletemany`, {
       headers: {
@@ -107,7 +118,7 @@ export const CARD_DELETE_ALL = () => (dispatch) => {
       },
     })
     .then((res) => {
-      return dispatch(cartUpdate_Success(res.data));
+      dispatch(cartDelete_Success(res.data));
     })
-    .catch((err) => dispatch(cartUpdate_Failed("Error")));
+    .catch((err) => dispatch(cartDelete_Failed("Error")));
 };

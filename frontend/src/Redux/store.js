@@ -2,7 +2,11 @@ import { applyMiddleware, combineReducers, compose, legacy_createStore } from 'r
 import { reducer as AppReducer } from './AppReducer/reducer'
 import { reducer as AuthReducer } from './AuthReducer/reducer';
 import thunk from 'redux-thunk'
-import { CartReducer, CartUpdateReducer } from "./CartReducer/CartReducer";
+import {
+  CartReducer,
+  CartUpdateReducer,
+  CartDeleteReducer,
+} from "./CartReducer/CartReducer";
 import { AdminReducer, AdminProductReducer } from "./AdminReducer/AdminReducer";
 import { OrderPostReducer, OrderGetReducer } from "./OrderReducer/OrderReducer";
 
@@ -16,6 +20,7 @@ const rootReducer = combineReducers({
   AdminProductReducer,
   OrderPostReducer,
   OrderGetReducer,
+  CartDeleteReducer,
 });
 
 export const store = legacy_createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))

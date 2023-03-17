@@ -64,3 +64,41 @@ export const CartUpdateReducer = (state = IntialState2, { type, payload }) => {
     }
   }
 };
+
+
+
+const IntialState3 = {
+  Cart_Items: [],
+  auth2: false,
+  loading2: false,
+  error2: false,
+};
+
+export const CartDeleteReducer = (state = IntialState3, { type, payload }) => {
+  switch (type) {
+    case "CART_DELETE_REQ": {
+      return { ...state, loading: true };
+    }
+    case "CART_DELETE": {
+      return {
+        ...state,
+        Cart_Items: payload,
+        loading: false,
+        auth: true,
+        error: false,
+      };
+    }
+    case "CART_DELETE_FAILED": {
+      return {
+        ...state,
+        Cart_Items: [],
+        loading: false,
+        auth: false,
+        error: true,
+      };
+    }
+    default: {
+      return state;
+    }
+  }
+};

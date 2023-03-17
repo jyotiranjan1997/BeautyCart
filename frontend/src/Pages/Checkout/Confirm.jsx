@@ -31,42 +31,48 @@ function ConfirmModal({ amount, handleDeleteMany, data, products }) {
   const handlePaymentSubmit = async (e) => {
     e.preventDefault();
     setLoad(true);
-    if (payment.box1 === true && payment.box2 === false) {
-      setPayment(IntialState);
+    if (payment.box1 === true && payment.box2 === true) {
+      swal({
+        title: "Please Choose any one option !",
+        text: "Choose one",
+        icon: "error",
+        button: "ok",
+      });
+      setLoad(false);
+    } else if (payment.box1 || payment.box2) {
       let order_details = {
         amount,
         address: data,
         products,
       };
       await handleDeleteMany();
-       handleClose();
       await dispatch(POST_ORDER(order_details, Token));
       setLoad(false);
+      handleClose();
       swal({
         title: "Product order Successfully !",
         text: "Go home page",
         icon: "success",
         button: "ok",
-      }).then(() => navigate("/"));
-    } else if (payment.box1 === false && payment.box2 === true) {
-      setPayment(IntialState);
+      }).then(() => navigate("/profile"));
+    } else {
       let order_details = {
         amount,
         address: data,
         products,
       };
-      
-     await handleDeleteMany();
-      handleClose();
+      await handleDeleteMany();
       await dispatch(POST_ORDER(order_details, Token));
-       setLoad(false);
+      setLoad(false);
+      handleClose();
       swal({
         title: "Product order Successfully !",
         text: "Go home page",
         icon: "success",
         button: "ok",
-      }).then(() => navigate("/"));
+      }).then(() => navigate("/profile"));
     }
+    setPayment(IntialState);
   };
 
   const handleClose = () => setShow(false);
@@ -94,7 +100,6 @@ function ConfirmModal({ amount, handleDeleteMany, data, products }) {
         Title="Next"
         buttonColor="green"
         handleClick={handleShow}
-        
       />
       {/* <Button backgroundColor="pink" variant="primary" onClick={handleShow}>
         Next
@@ -108,35 +113,42 @@ function ConfirmModal({ amount, handleDeleteMany, data, products }) {
         <Modal.Header closeButton>
           <Modal.Title>Payment</Modal.Title>
         </Modal.Header>
-         {load ? <Loading/>: <>  <Modal.Body>
-          Amount Need to Pay Rs.{amount}.00
-          <Flex gap="15px" mt="15px">
-            <input
-              name="box1"
-              type="checkbox"
-              value={payment.box1}
-              onChange={handlePaymentChange}
-            />
-            <Text>Cash on Delivery</Text>
-          </Flex>
-          <Flex mt="15px" gap="15px">
-            <input
-              name="box2"
-              type="checkbox"
-              value={payment.box2}
-              onChange={handlePaymentChange}
-            />
-            <Text>Card Payment</Text>
-          </Flex>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button onClick={handlePaymentSubmit} variant="primary">
-            Confirm order
-          </Button>
-        </Modal.Footer></>}
+        {load ? (
+          <Loading />
+        ) : (
+          <>
+            {" "}
+            <Modal.Body>
+              Amount Need to Pay Rs.{amount}.00
+              <Flex gap="15px" mt="15px">
+                <input
+                  name="box1"
+                  type="checkbox"
+                  value={payment.box1}
+                  onChange={handlePaymentChange}
+                />
+                <Text>Cash on Delivery</Text>
+              </Flex>
+              <Flex mt="15px" gap="15px">
+                <input
+                  name="box2"
+                  type="checkbox"
+                  value={payment.box2}
+                  onChange={handlePaymentChange}
+                />
+                <Text>Card Payment</Text>
+              </Flex>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button onClick={handlePaymentSubmit} variant="primary">
+                Confirm order
+              </Button>
+            </Modal.Footer>
+          </>
+        )}
       </Modal>
     </>
   );

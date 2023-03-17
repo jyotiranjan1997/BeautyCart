@@ -3,7 +3,7 @@ import Products from "../../Components/ProductComponent/Product";
 
 export default function HairColor() {
   return (
-    <Link to="/hair_color">
+    <Link to="/hair_oil">
       <Products
         product_category={"hair oil"}
         product_name="Hair Oil"

@@ -24,8 +24,8 @@ export default function Checkout() {
     setData({ ...data, [name]: value });
   };
   
-  const handleDeleteMany =(e) => {
-    dispatch(CARD_DELETE_ALL());
+  const handleDeleteMany =async(e) => {
+    await dispatch(CARD_DELETE_ALL());
   }
 
 

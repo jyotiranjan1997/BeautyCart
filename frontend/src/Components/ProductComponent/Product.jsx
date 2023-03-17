@@ -32,7 +32,6 @@ export default function Products({ product_category, product_name }) {
         setLoad(false);
       })
       .catch((e) => {
-        console.log(e);
         setLoad(false);
       });
   };
